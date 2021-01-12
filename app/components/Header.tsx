@@ -37,7 +37,7 @@ export default function Header({ darkState, handleThemeChange }) {
           <Typography variant='h6' className={classes.title}>
             <Link href='/'>
               <LinkText href='' color='inherit'>
-                Streami
+                Asana
               </LinkText>
             </Link>
           </Typography>
