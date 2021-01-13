@@ -1,20 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/core/styles';
 import { ApolloProvider } from '@apollo/client';
-
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { useApollo } from 'lib/apollo';
-import { themeDark, themeLight } from 'lib/theme';
+import theme from '../lib/theme';
 import { AuthProvider } from 'lib/useAuth';
 import Header from 'components/Header';
 
+const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap');
+  
+  body {
+    margin: 0 auto;
+  }
+
+  a {
+  text-decoration: none;
+  }
+
+  button {
+    border: none;
+    outline: none;
+    text-align: center;
+  }
+`;
+
 export default function MyApp({ Component, pageProps }) {
-  const [darkState, setDarkState] = useState(false);
-
-  const handleThemeChange = () => {
-    setDarkState(!darkState);
-  };
-
   const apolloClient = useApollo(pageProps.initialApolloState);
 
   useEffect(() => {
@@ -27,10 +38,11 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <ApolloProvider client={apolloClient}>
-      <ThemeProvider theme={darkState ? themeDark : themeLight}>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
         <CssBaseline />
         <AuthProvider>
-          <Header darkState={darkState} handleThemeChange={handleThemeChange} />
+          <Header />
           <Component {...pageProps} />
         </AuthProvider>
       </ThemeProvider>

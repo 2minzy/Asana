@@ -1,18 +1,42 @@
 import React from 'react';
-import { makeStyles, Theme } from '@material-ui/core/styles';
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  Link as LinkText,
-  Switch,
-} from '@material-ui/core';
+import { Toolbar, Typography, Link as LinkText } from '@material-ui/core';
 import Link from 'next/link';
 import { useAuth } from 'lib/useAuth';
+import styled from 'styled-components';
 
-export default function Header({ darkState, handleThemeChange }) {
-  const classes = useStyles();
+const NavBar = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  color: #fff;
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  top: 0px;
+  padding: 50px 80px;
+  transition: 0.5s;
+  z-index: 30;
+`;
+
+const Logo = styled.a`
+  font-family: 'DM Serif Text', serif;
+  font-size: 2.6rem;
+  cursor: pointer;
+`;
+
+const Button = styled.a`
+  color: white;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+
+  &:hover {
+    border-bottom: white 1px solid;
+  }
+`;
+
+export default function Header() {
   const { user } = useAuth();
 
   const links = [
@@ -25,41 +49,34 @@ export default function Header({ darkState, handleThemeChange }) {
     .map(({ label, href }) => {
       return (
         <Link href={href} key={href}>
-          <Button color='inherit'>{label}</Button>
+          <Button>{label}</Button>
         </Link>
       );
     });
 
   return (
-    <div className={classes.root}>
-      <AppBar position='static'>
-        <Toolbar>
-          <Typography variant='h6' className={classes.title}>
-            <Link href='/'>
-              <LinkText href='' color='inherit'>
-                Asana
-              </LinkText>
-            </Link>
-          </Typography>
-          <Switch checked={darkState} onChange={handleThemeChange} />
-          {links}
-        </Toolbar>
-      </AppBar>
-    </div>
+    <NavBar>
+      <Link href='/'>
+        <div>
+          <Logo>Asana</Logo>
+        </div>
+      </Link>
+      <div>{links}</div>
+    </NavBar>
   );
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  list: {
-    width: 250,
-  },
-}));
+// const useStyles = makeStyles((theme: Theme) => ({
+//   root: {
+//     flexGrow: 1,
+//   },
+//   menuButton: {
+//     marginRight: theme.spacing(2),
+//   },
+//   title: {
+//     flexGrow: 1,
+//   },
+//   list: {
+//     width: 250,
+//   },
+// }));

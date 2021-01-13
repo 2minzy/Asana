@@ -6,4 +6,9 @@ declare module '*.graphqls' {
   export default typeof DocumentNode;
 }
 
+declare module '*.jpg' {
+  const value: any;
+  export default value;
+}
+
 declare module '*.yml';

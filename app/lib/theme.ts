@@ -1,20 +1,17 @@
-import grey from '@material-ui/core/colors/grey';
-import { createMuiTheme } from '@material-ui/core/styles';
+const deviceSizes = {
+  mobile: '375px',
+  tablet: '768px',
+  laptop: '1024px',
+};
 
-const themeDark = createMuiTheme({
-  palette: {
-    primary: { main: grey[200] },
-    secondary: { main: grey[400] },
-    type: 'dark',
-  },
-});
+const device = {
+  mobile: `screen and (max-width: ${deviceSizes.mobile})`,
+  tablet: `screen and (max-width: ${deviceSizes.tablet})`,
+  laptop: `screen and (max-width: ${deviceSizes.laptop})`,
+};
 
-const themeLight = createMuiTheme({
-  palette: {
-    primary: { main: grey[800] },
-    secondary: { main: grey[900] },
-    type: 'light',
-  },
-});
+const theme = {
+  device,
+};
 
-export { themeDark, themeLight };
+export default theme;
