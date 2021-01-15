@@ -8,10 +8,10 @@ import { AuthProvider } from 'lib/useAuth';
 import Header from 'components/Header';
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap');
   
   body {
     margin: 0 auto;
+    font-family: 'Lato', sans-serif;
   }
 
   a {
