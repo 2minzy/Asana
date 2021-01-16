@@ -4,11 +4,16 @@ import { initializeApollo } from 'lib/apollo';
 import { useEditStreamMutation } from 'lib/graphql/editStream.graphql';
 import { useDeleteStreamMutation } from 'lib/graphql/deleteStream.graphql';
 import { StreamDocument } from 'lib/graphql/stream.graphql';
-import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  margin: 160px 80px;
+  text-align: center;
+`;
 
 export default function EditStream({ id }) {
   const router = useRouter();
@@ -68,7 +73,7 @@ export default function EditStream({ id }) {
   };
 
   return (
-    <Container maxWidth='sm'>
+    <Container>
       <Box my={4}>
         <Typography variant='h4'>Edit Stream</Typography>
         <form onSubmit={onSubmit}>

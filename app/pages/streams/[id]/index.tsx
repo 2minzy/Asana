@@ -1,9 +1,12 @@
-import Container from '@material-ui/core/Container';
-
 import Hero from 'components/Hero';
 import Content from 'components/Content';
 import { useStreamQuery, Stream } from 'lib/graphql/stream.graphql';
+import styled from 'styled-components';
 
+const Container = styled.div`
+  margin: 160px 80px;
+  text-align: center;
+`;
 export default function StreamDetail({ id }) {
   const { data, loading } = useStreamQuery({
     variables: { streamId: id },
@@ -11,7 +14,7 @@ export default function StreamDetail({ id }) {
 
   if (!loading && data && data.stream) {
     return (
-      <Container maxWidth='lg'>
+      <Container>
         <Hero stream={data.stream as Stream} />
         <Content url={data.stream.url} />
       </Container>

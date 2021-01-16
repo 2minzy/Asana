@@ -1,10 +1,15 @@
 import { useState } from 'react';
 import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { useAuth } from '../../lib/useAuth';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  margin: 160px 80px;
+  text-align: center;
+`;
 
 export default function SignUp() {
   const [email, setEmail] = useState('');
@@ -17,7 +22,7 @@ export default function SignUp() {
   };
 
   return (
-    <Container maxWidth='sm'>
+    <Container>
       <Box my={4}>
         <form onSubmit={onSubmit}>
           {error && <p>{error}</p>}

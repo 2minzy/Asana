@@ -60,11 +60,15 @@ export default function Header() {
   return (
     <NavBar style={navStyle}>
       <Link href='/'>
-        <div>
-          <Logo>Asana</Logo>
-        </div>
+        <Logo>Asana</Logo>
       </Link>
-      <div>{links}</div>
+
+      <div>
+        <Link href='/streams'>
+          <Button>Streams</Button>
+        </Link>
+        {links}
+      </div>
     </NavBar>
   );
 }
