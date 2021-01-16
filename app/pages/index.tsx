@@ -44,7 +44,7 @@ const Showcase = styled.div`
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(12, 12, 12, 0.5);
+    background: rgba(27, 27, 27, 0.5);
   }
 
   & * {
@@ -75,8 +75,8 @@ const Button = styled.button`
 
   &:hover {
     opacity: 0.7;
-    color: #dda948;
-    border-color: #f5b339;
+    color: #84332c;
+    border-color: #84332c;
   }
 `;
 
@@ -149,7 +149,7 @@ const SectionContent = styled.div`
 const FloatingButton = styled.button`
   visibility: ${props => (props.show ? 'visibile' : 'hidden')};
   opacity: ${props => (props.show ? 1 : 0)};
-  background-color: #f3b94c;
+  background-color: #84332c;
   color: white;
   width: 60px;
   height: 60px;
@@ -163,25 +163,24 @@ const FloatingButton = styled.button`
   cursor: pointer;
 `;
 
-// const ItemImage = styled.div`
-//   height: auto;
-//   opacity: 80%;
-//   transform: translateZ(0);
-//   display: block;
-//   transition: transform 750ms cubic-bezier(0.2, 1, 0.3, 1);
+const ItemImage = styled.div`
+  height: auto;
+  opacity: 80%;
+  transform: translateZ(0);
+  display: block;
+  transition: transform 750ms cubic-bezier(0.2, 1, 0.3, 1);
 
-//   &:hover {
+  &:hover {
+    opacity: 100%;
+    z-index: -1;
+  }
 
-//     opacity: 100%;
-//     z-index: -1;
-//   }
-
-//   &::before {
-//     content: '';
-//     display: block;
-//     overflow: hidden;
-//   }
-// `;
+  &::before {
+    content: '';
+    display: block;
+    overflow: hidden;
+  }
+`;
 
 const Footer = styled.footer`
   position: relative;

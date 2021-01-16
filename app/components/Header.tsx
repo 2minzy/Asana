@@ -2,13 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import { useAuth } from 'lib/useAuth';
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
 
 const NavBar = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: transparent;
-  color: #fff;
   width: 100%;
   height: 70px;
   position: fixed;
@@ -25,7 +25,6 @@ const Logo = styled.a`
 `;
 
 const Button = styled.a`
-  color: white;
   padding: 10px 20px;
   margin: 0 5px;
   cursor: pointer;
@@ -37,6 +36,11 @@ const Button = styled.a`
 
 export default function Header() {
   const { user } = useAuth();
+  const router = useRouter();
+
+  const navStyle = {
+    color: router.pathname !== '/' ? 'black' : 'white',
+  };
 
   const links = [
     !user && { label: 'Sign Up', href: '/auth/signup' },
@@ -54,7 +58,7 @@ export default function Header() {
     });
 
   return (
-    <NavBar>
+    <NavBar style={navStyle}>
       <Link href='/'>
         <div>
           <Logo>Asana</Logo>
@@ -64,18 +68,3 @@ export default function Header() {
     </NavBar>
   );
 }
-
-// const useStyles = makeStyles((theme: Theme) => ({
-//   root: {
-//     flexGrow: 1,
-//   },
-//   menuButton: {
-//     marginRight: theme.spacing(2),
-//   },
-//   title: {
-//     flexGrow: 1,
-//   },
-//   list: {
-//     width: 250,
-//   },
-// }));

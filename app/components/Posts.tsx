@@ -8,6 +8,7 @@ import Hidden from '@material-ui/core/Hidden';
 import Link from 'next/link';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Stream } from '../lib/graphql/streams.graphql';
+import styled from 'styled-components';
 
 interface Props {
   streams: Stream[];
