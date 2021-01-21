@@ -262,6 +262,10 @@ const Footer = styled.footer`
   background: #14110b;
   height: 140px;
   color: white;
+
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 0.8rem;
+  }
 `;
 
 export default function Index() {
