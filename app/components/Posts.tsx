@@ -8,7 +8,6 @@ import Hidden from '@material-ui/core/Hidden';
 import Link from 'next/link';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Stream } from '../lib/graphql/streams.graphql';
-import styled from 'styled-components';
 
 interface Props {
   streams: Stream[];
@@ -73,6 +72,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   card: {
     display: 'flex',
+    overflow: 'scroll',
   },
   cardDetails: {
     flex: 1,

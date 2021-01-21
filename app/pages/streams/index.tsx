@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Link from 'next/link';
 import Posts from 'components/Posts';
@@ -10,10 +9,21 @@ const Container = styled.div`
   margin: 160px 80px;
   text-align: center;
 
+  @media ${({ theme }) => theme.device.mobile} {
+    margin: 80px 10px;
+    text-align: center;
+  }
+`;
+
+const Info = styled.div`
   a {
     text-decoration: none;
     color: red;
   }
+`;
+
+const Title = styled.div`
+  font-size: 1.8rem;
 `;
 
 const Description = styled.div`
@@ -22,7 +32,7 @@ const Description = styled.div`
 
 export default function Streams() {
   const { data, loading, refetch } = useStreamsQuery({ errorPolicy: 'ignore' });
-  console.log(data);
+
   useEffect(() => {
     refetch();
   }, []);
@@ -30,25 +40,25 @@ export default function Streams() {
   return (
     <Container>
       <Box my={4}>
-        <Typography variant='h4'>Streams</Typography>
+        <Title>My Streams</Title>
       </Box>
       {!loading && data && data.streams && (
         <Posts streams={data.streams as Stream[]} />
       )}
 
       {!loading && data && data.streams.length === 0 && (
-        <>
+        <Info>
           <Description>
             Create your own meditaion stream collection!
           </Description>
           <Link href='/streams/new'>
             <a>Create new stream</a>
           </Link>
-        </>
+        </Info>
       )}
 
       {!loading && !data && (
-        <>
+        <Info>
           <Description>
             Join us! <br />
             Share your favorite meditation streaming content!
@@ -61,7 +71,7 @@ export default function Streams() {
           <Link href='/auth/signin'>
             <a> Sign In</a>
           </Link>
-        </>
+        </Info>
       )}
     </Container>
   );

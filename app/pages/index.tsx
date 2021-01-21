@@ -60,6 +60,23 @@ const Showcase = styled.div`
       cursor: pointer;
     }
   }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    h1 {
+      margin-top: 140px;
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobileSmall} {
+    h1 {
+      margin-top: 100px;
+    }
+  }
 `;
 
 const Button = styled.button`
@@ -70,7 +87,6 @@ const Button = styled.button`
   color: #fff;
   background-color: transparent;
   border: white 2px solid;
-  margin-bottom: 320px;
 
   &:hover {
     background: linear-gradient(
@@ -79,6 +95,10 @@ const Button = styled.button`
       rgba(65, 198, 223, 1) 62%,
       rgba(142, 223, 249, 0.9962359943977591) 100%
     );
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 0.8rem;
   }
 `;
 
@@ -96,9 +116,28 @@ const bounce = keyframes`
 
 const Bounce = styled.div`
   animation: ${bounce} 2s infinite;
+  margin-top: 300px;
 
   .arrow-icon {
-    transform: scale(3.4);
+    transform: scale(3.2);
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 0.8rem;
+    margin-top: 160px;
+
+    .arrow-icon {
+      transform: scale(2.2);
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobileSmall} {
+    font-size: 0.8rem;
+    margin-top: 80px;
+
+    .arrow-icon {
+      transform: scale(2);
+    }
   }
 `;
 
@@ -107,6 +146,10 @@ const SectionContainer = styled.div`
   height: 100vh;
   display: flex;
   color: #fff;
+
+  @media ${({ theme }) => theme.device.mobile} {
+    flex-direction: column;
+  }
 `;
 
 const Section = styled.div`
@@ -152,6 +195,28 @@ const SectionContent = styled.div`
     text-align: center;
     margin: 0 auto auto auto;
   }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    .icon {
+      width: 80px;
+      height: 80px;
+      padding: 8px 16px;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    .icon {
+      width: 80px;
+      height: 80px;
+      padding: 8px 16px;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+  }
 `;
 
 const FloatingButton = styled.button`
@@ -177,6 +242,16 @@ const FloatingButton = styled.button`
 
   .arrow-icon {
     transform: scale(3);
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    width: 50px;
+    height: 50px;
+    padding: 2px;
+
+    .arrow-icon {
+      transform: scale(2);
+    }
   }
 `;
 
@@ -271,7 +346,10 @@ export default function Index() {
           </SectionContent>
         </Section>
       </SectionContainer>
-      <Footer>Copyright &copy; ASANA | All rights reserved. | MINJI LEE</Footer>
+      <Footer>
+        Copyright &copy; {new Date().getFullYear()} Asana | All rights reserved.
+        | MINJI LEE
+      </Footer>
       <FloatingButton onClick={scrollToTop} show={showScroll}>
         <KeyboardArrowUpRounded className='arrow-icon' />
       </FloatingButton>
