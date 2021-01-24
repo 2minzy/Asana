@@ -33,7 +33,7 @@ const NavBar = styled.div`
     }
 
     &-open {
-      margin-top: 1rem;
+      margin: 1rem;
       display: flex;
       flex-direction: column;
     }
@@ -87,7 +87,7 @@ export default function Header() {
   };
 
   const navItemsBg = {
-    backgroundColor: router.pathname !== '/' ? 'white' : 'transparant',
+    backgroundColor: router.pathname !== '/' ? 'white' : 'transparent',
   };
 
   const links = [

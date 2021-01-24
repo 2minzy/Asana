@@ -259,7 +259,7 @@ const Footer = styled.footer`
   padding: 60px;
   text-align: center;
   position: relative;
-  background: #14110b;
+  background: #0d0d0d;
   height: 140px;
   color: white;
 

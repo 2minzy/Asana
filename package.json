@@ -1,0 +1,27 @@
+{
+  "name": "asana",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build": "yarn workspace @asana/app run build",
+    "start": "yarn workspace @asana/api run start",
+    "dev": "yarn workspace @asana/api run dev"
+  },
+  "workspaces": [
+    "api",
+    "app"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2minzy/Streami.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/2minzy/Streami/issues"
+  },
+  "homepage": "https://github.com/2minzy/Streami#readme"
+}

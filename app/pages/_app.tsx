@@ -40,7 +40,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>ASANA - Meditation music streaming service</title>
+        <title>ASANA - Meditation music stream's storage</title>
         <link rel='icon' type='image/x-icon' href='/public/favicon.ico'></link>
         <link
           href='https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap'
