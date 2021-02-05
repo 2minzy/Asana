@@ -10,7 +10,7 @@ streams 페이지에서 자신이 등록한 음악을 감상 할 수 있습니�
 
 <br />
 
->✨ 아래 링크에서 프로젝트 데모 확인이 가능합니다.
+>✨ 아래 링크에서 프로젝트 데모 확인이 가능합니다. <br />
 [Asana Demo](https://asana-streams.herokuapp.com/)
 
 <br />
